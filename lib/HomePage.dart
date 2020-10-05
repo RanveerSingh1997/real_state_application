@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Widgets/AppDrawer.dart';
+import 'Widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -33,38 +34,41 @@ class _HomePageState extends State<HomePage> {
           CustomPaint(
             painter: ShapesPainter(),
             child: Container(
-              height: 200,
+              height: MediaQuery.of(context).size.height*.45,
             ),
           ),
           Column(
             children: [
               Container(
+                margin: EdgeInsets.symmetric(vertical: 8),
                 height: 35,
                 child: ToggleButtons(
-                  borderRadius: BorderRadius.circular(10),
+                  constraints: BoxConstraints.expand(width: MediaQuery.of(context).size.width*.22),
+                  borderRadius: BorderRadius.circular(4),
                   borderColor: Colors.white,
                   selectedColor: Colors.white,
                   hoverColor: Colors.white,
-                  splashColor: Colors.white,
                   fillColor: Colors.white,
+                  selectedBorderColor: Colors.white,
+
                   children: <Widget>[
-                    Text(
-                      "BUY",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Text(
-                      "RENT",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Text(
-                      "PROJECTS",
-                      style: TextStyle(color: Colors.white),
-                    )
+
+                    buildSingleTab("BUY",selected: _isSelected[0]),
+                    buildSingleTab("RENT",selected: _isSelected[1]),
+                    buildSingleTab("PROJECTS",selected: _isSelected[2]),
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
                     setState(() {
-                      _isSelected[index] = !_isSelected[index];
+
+                    for(int i = 0 ; i < _isSelected.length;i++)
+                      {
+                        _isSelected[i] = false;
+                      }
+
+                      _isSelected[index] = true;
+
+
                     });
                   },
                 ),
@@ -81,12 +85,20 @@ class _HomePageState extends State<HomePage> {
                       hintText: "eg Brixton"),
                 ),
               )
+
+              // Container(
+              //   he
+              // )
             ],
+
+
+
           )
         ],
       ),
     );
   }
+
 }
 
 class ShapesPainter extends CustomPainter {

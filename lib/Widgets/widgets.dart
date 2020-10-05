@@ -9,6 +9,15 @@ Widget appBarItem({icons, text,textStyle,onPress}) {
   );
 }
 
+Widget buildSingleTab(text,{selected})
+{
+  return Text(
+    text,
+    style: TextStyle(color: selected?Colors.blue:Colors.white),
+  );
+}
+
+
 Widget SingleIconText(icon, text, context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
