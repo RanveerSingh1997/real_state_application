@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_state_app/HomePage.dart';
+import 'file:///C:/Users/user/Desktop/real_state_app/lib/Screens/HomePage.dart';
 import 'package:real_state_app/Screens/DashboardPage.dart';
 import 'package:real_state_app/Screens/FavouritePage.dart';
 import 'package:real_state_app/Screens/MessagesPage.dart';

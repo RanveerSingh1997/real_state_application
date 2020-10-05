@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:real_state_app/Screens/LoginPage.dart';
-import 'package:real_state_app/Screens/RegisterPage.dart';
+import 'file:///C:/Users/user/Desktop/real_state_app/lib/Screens/DrawerScreens/LoginPage.dart';
+import 'file:///C:/Users/user/Desktop/real_state_app/lib/Screens/DrawerScreens/RegisterPage.dart';
 import 'widgets.dart';
 
 

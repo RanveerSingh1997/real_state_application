@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:real_state_app/Constants/color_constants.dart';
 import 'package:real_state_app/Widgets/widgets.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: 200,
-            decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+            decoration: BoxDecoration(color:kPrimaryColor),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:10),
             child: Card(
-              color:s?Colors.grey.shade400:Colors.white ,
+              color:s?kFadeGreyColor:Colors.white ,
               child: ExpansionTile(
                 onExpansionChanged:(bool){
                   setState(() {
@@ -79,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:10),
             child: Card(
-              color:b?Colors.grey.shade400:Colors.white,
+              color:b?kFadeGreyColor:Colors.white,
               child: ExpansionTile(
                 onExpansionChanged:(bool){
                  setState(() {
@@ -111,7 +112,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           Radius.circular(5),
                         ),
                       ),
-                      color:Colors.orange,
+                      color:kSecondaryColor,
                       child: Row(
                         mainAxisAlignment:MainAxisAlignment.spaceBetween,
                         children: <Widget>[

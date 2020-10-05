@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //App bar Items
 Widget appBarItem({icons, text,textStyle,onPress}) {
@@ -17,6 +18,13 @@ Widget buildSingleTab(text,{selected})
   );
 }
 
+Widget contactUs({icons,title,subtitle}){
+  return ListTile(
+    leading:Icon(FontAwesomeIcons.addressBook),
+    title:Text("ADDRESS"),
+    subtitle:Text("3-277-10 Susan Apartment\nLiverpool,United kingdom"),
+  );
+}
 
 Widget SingleIconText(icon, text, context) {
   return Row(

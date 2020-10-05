@@ -6,12 +6,13 @@ import 'package:real_state_app/Widgets/SingleProperyHorizontal.dart';
 
 import 'Modals/Property.dart';
 
-class TestingApi extends StatefulWidget {
+class PropertiesPage extends StatefulWidget {
+
   @override
-  _TestingApiState createState() => _TestingApiState();
+  _PropertiesPageState createState() => _PropertiesPageState();
 }
 
-class _TestingApiState extends State<TestingApi> {
+class _PropertiesPageState extends State<PropertiesPage> {
   @override
   Widget build(BuildContext context) {
     List<Property> list = Provider.of<DataProvider>(context).propertyList;

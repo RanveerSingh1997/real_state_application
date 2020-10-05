@@ -19,6 +19,7 @@ class DataProvider with ChangeNotifier {
   }
 
   getUser() async {
+    await apiClient.loginUser("Mahadev","123");
     var pref = await SharedPreferences.getInstance();
     var id = pref.getString("user");
     var pass = pref.getString("pass");

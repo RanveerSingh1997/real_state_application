@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Widgets/AppDrawer.dart';
-import 'Widgets/widgets.dart';
+import 'package:real_state_app/Constants/custom_paint.dart';
+import 'package:real_state_app/Widgets/AppDrawer.dart';
+import 'package:real_state_app/Widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: Text("Home"),
         leading: Builder(
-          builder:(context)=> IconButton(
+          builder: (context) => IconButton(
             icon: Icon(Icons.sort),
             onPressed: () {
               Scaffold.of(context).openDrawer();
@@ -28,13 +28,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-     drawer:AppDrawer(),
+      drawer: AppDrawer(),
       body: Stack(
         children: [
           CustomPaint(
             painter: ShapesPainter(),
             child: Container(
-              height: MediaQuery.of(context).size.height*.45,
+              height: MediaQuery.of(context).size.height * .45,
             ),
           ),
           Column(
@@ -43,32 +43,27 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.symmetric(vertical: 8),
                 height: 35,
                 child: ToggleButtons(
-                  constraints: BoxConstraints.expand(width: MediaQuery.of(context).size.width*.22),
+                  constraints: BoxConstraints.expand(
+                      width: MediaQuery.of(context).size.width * .22),
                   borderRadius: BorderRadius.circular(4),
                   borderColor: Colors.white,
                   selectedColor: Colors.white,
                   hoverColor: Colors.white,
                   fillColor: Colors.white,
                   selectedBorderColor: Colors.white,
-
                   children: <Widget>[
-
-                    buildSingleTab("BUY",selected: _isSelected[0]),
-                    buildSingleTab("RENT",selected: _isSelected[1]),
-                    buildSingleTab("PROJECTS",selected: _isSelected[2]),
+                    buildSingleTab("BUY", selected: _isSelected[0]),
+                    buildSingleTab("RENT", selected: _isSelected[1]),
+                    buildSingleTab("PROJECTS", selected: _isSelected[2]),
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
                     setState(() {
-
-                    for(int i = 0 ; i < _isSelected.length;i++)
-                      {
+                      for (int i = 0; i < _isSelected.length; i++) {
                         _isSelected[i] = false;
                       }
 
                       _isSelected[index] = true;
-
-
                     });
                   },
                 ),
@@ -90,32 +85,10 @@ class _HomePageState extends State<HomePage> {
               //   he
               // )
             ],
-
-
-
           )
         ],
       ),
     );
   }
-
 }
 
-class ShapesPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint();
-    paint.color = Colors.blue;
-    var path = Path();
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height / 1.5);
-
-    path.lineTo(0, size.height);
-    // close the path to form a bounded shape
-    path.close();
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
