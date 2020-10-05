@@ -21,46 +21,40 @@ class _MyHomePageState extends State<MyHomePage> {
     FavouritePage(),
     MessagesPage()
   ];
+  final String title="Home";
+
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            elevation: 0.0,
-            centerTitle: true,
-            title: Text("Home"),
-          ),
-          drawer: AppDrawer(),
-          body: _currentPage[_currentIndex],
-          bottomNavigationBar: BottomNavigationBar(
-              backgroundColor:Colors.brown,
-              selectedItemColor:Colors.black,
-              unselectedItemColor:Colors.grey,
-              onTap:onTabTapped,
-              items: [
-                new BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  title: Text('Home'),
-                ),
-                new BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
-                  title: Text('Donor'),
-                ),
-                new BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    title: Text('Story')
-                ),
-                new BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite),
-                    title: Text('Story')
-                ),
-                new BottomNavigationBarItem(
-                    icon: Icon(Icons.add_alert),
-                    title: Text('Story')
-                )
-              ]
-          ),
+      child: Scaffold(
+        body: _currentPage[_currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+            backgroundColor:Colors.brown,
+            selectedItemColor:Colors.black,
+            unselectedItemColor:Colors.grey,
+            onTap:onTabTapped,
+            items: [
+              new BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text('Home'),
+              ),
+              new BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                title: Text('Donor'),
+              ),
+              new BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  title: Text('Story')
+              ),
+              new BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  title: Text('Story')
+              ),
+              new BottomNavigationBarItem(
+                  icon: Icon(Icons.add_alert),
+                  title: Text('Story')
+              )
+            ]
         ),
       ),
     );

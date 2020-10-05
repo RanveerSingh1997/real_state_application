@@ -43,7 +43,7 @@ class SinglePropertyHorizontal extends StatelessWidget {
                             top: 10,
                             child: IconButton(
                               onPressed: (){},
-                              icon: Icon(Icons.favorite_rounded,color: Colors.yellow,),
+                              icon: Icon(Icons.favorite,color: Colors.yellow,),
 
                             ))
 

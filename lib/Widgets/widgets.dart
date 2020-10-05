@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 //App bar Items
-Widget appBarItem({icons, text, onPress}) {
+Widget appBarItem({icons, text,textStyle,onPress}) {
   return ListTile(
-    leading: Icon(icons),
-    title: Text("Logout"),
+    leading: Icon(icons,color:Colors.black,),
+    title: Text(text,style:textStyle,),
     onTap: onPress,
   );
 }

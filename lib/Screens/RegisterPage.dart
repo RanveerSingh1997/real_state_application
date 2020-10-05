@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_state_app/Widgets/widgets.dart';
 
 class RegisterPage extends StatelessWidget {
+  static final String routName="RegisterPage";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

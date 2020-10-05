@@ -1,64 +1,94 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'Widgets/AppDrawer.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<bool> _isSelected=[false,false,false];
+  final List<bool> _isSelected = [false, false, false];
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CustomPaint(
-          painter: ShapesPainter(),
-          child: Container(
-            height: 200,
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        centerTitle: true,
+        title: Text("Home"),
+        leading: Builder(
+          builder:(context)=> IconButton(
+            icon: Icon(Icons.sort),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
           ),
         ),
-        Column(
-          children: [
-            Container(
-              height:35,
-              child: ToggleButtons(
-                borderRadius:BorderRadius.circular(10),
-                borderColor:Colors.white,
-                selectedColor:Colors.white,
-                hoverColor:Colors.white,
-                splashColor:Colors.white,
-                fillColor:Colors.white,
-                children: <Widget>[
-                  Text("BUY",style:TextStyle(color:Colors.white),),
-                  Text("RENT",style:TextStyle(color:Colors.white),),
-                  Text("PROJECTS",style:TextStyle(color:Colors.white),)
-                ],
-                isSelected: _isSelected,
-                onPressed: (int index) {
-                  setState(() {
-                    _isSelected[index] = !_isSelected[index];
-                  });
-                },
-              ),
+      ),
+     drawer:AppDrawer(),
+      body: Stack(
+        children: [
+          CustomPaint(
+            painter: ShapesPainter(),
+            child: Container(
+              height: 200,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical:8,horizontal:15),
-              child: TextFormField(
-                decoration:InputDecoration(
-                    fillColor:Colors.white,
-                    filled:true,
-                    border:InputBorder.none,
-                    suffixIcon:Icon(Icons.search),
-                    hintText:"eg Brixton"
+          ),
+          Column(
+            children: [
+              Container(
+                height: 35,
+                child: ToggleButtons(
+                  borderRadius: BorderRadius.circular(10),
+                  borderColor: Colors.white,
+                  selectedColor: Colors.white,
+                  hoverColor: Colors.white,
+                  splashColor: Colors.white,
+                  fillColor: Colors.white,
+                  children: <Widget>[
+                    Text(
+                      "BUY",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      "RENT",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      "PROJECTS",
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                  isSelected: _isSelected,
+                  onPressed: (int index) {
+                    setState(() {
+                      _isSelected[index] = !_isSelected[index];
+                    });
+                  },
                 ),
               ),
-            )
-          ],
-        )
-      ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: InputBorder.none,
+                      suffixIcon: Icon(Icons.search),
+                      hintText: "eg Brixton"),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
+
 class ShapesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:real_state_app/Screens/LoginPage.dart';
 import 'package:real_state_app/Screens/RegisterPage.dart';
-import 'package:real_state_app/Service/DataProvider.dart';
-import 'package:real_state_app/TestingApi.dart';
-import 'package:real_state_app/Widgets/SingleProperty.dart';
 
 import 'MyHomePage.dart';
+import 'Screens/ProfilePage.dart';
+import 'Screens/SettingsPage.dart';
+import 'Service/DataProvider.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +29,13 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home:TestingApi(),
+        home:MyHomePage(),
+        routes: {
+          RegisterPage.routName:(ctx)=>RegisterPage(),
+          LoginPage.routName:(ctx)=>LoginPage(),
+          SettingsPage.routName:(ctx)=>SettingsPage(),
+          ProfilePage.routName:(ctx)=>ProfilePage()
+        },
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_state_app/Widgets/widgets.dart';
 
 class LoginPage extends StatelessWidget {
+  static final String routName="LoginPage";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
