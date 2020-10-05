@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.vertical,
                     itemCount: 4,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio:2 ,crossAxisSpacing: 1,mainAxisSpacing: 1), itemBuilder: (context,index)=>Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(11),
                   margin: EdgeInsets.only(left: 15,right: 15,top: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10)
