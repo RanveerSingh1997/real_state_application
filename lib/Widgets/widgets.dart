@@ -9,6 +9,29 @@ Widget appBarItem({icons, text, onPress}) {
   );
 }
 
+Widget SingleIconText(icon, text, context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      Icon(
+        icon,
+        color: Colors.black54,
+        size: 20,
+      ),
+      SizedBox(
+        width: 8,
+      ),
+      Text(
+        text,
+        style: Theme.of(context)
+            .textTheme
+            .headline6
+            .copyWith(color: Colors.black54),
+      ),
+    ],
+  );
+}
+
 
 Widget textFormField({label}){
   return TextFormField(
