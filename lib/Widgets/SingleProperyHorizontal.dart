@@ -7,6 +7,7 @@ class SinglePropertyHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 320,
+
       margin: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
       child: InkWell(
         onHover: (val){

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-
 import 'package:http/http.dart' as http;
+import 'package:real_state_app/Modals/City.dart';
 import 'package:real_state_app/Modals/Property.dart';
 import 'package:real_state_app/Modals/User.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,7 +39,6 @@ class ApiClient {
       pref.setString("user", user.userName);
       pref.setString("pass", pass);
 
-
       return user;
     } catch (e) {
       return User();
@@ -47,7 +46,6 @@ class ApiClient {
   }
 
   Future<List<Property>> getAllProperty() async {
-
     var pref = await SharedPreferences.getInstance();
 
     token = pref.getString("token");
@@ -58,7 +56,7 @@ class ApiClient {
 
     var data = JsonDecoder().convert(response.body);
 
-    List<Property> propertyList=List();
+    List<Property> propertyList = List();
 
     if (data["Status"]) {
       List list = data['data'];
@@ -68,6 +66,29 @@ class ApiClient {
       }
     }
     return propertyList;
+  }
+
+  Future<List<City>> getAllCities() async {
+    var pref = await SharedPreferences.getInstance();
+    token = pref.getString("token");
+    header = {"Authorization": token};
+    print(header.toString());
+    var response =
+        await http.get("$ENDPOINT/api/MasterApi/getAllCity", headers: header);
+
+    var data = JsonDecoder().convert(response.body);
+
+    var cityList = List<City>();
+
+    if (data["Status"]) {
+      for (var d in data["data"]) {
+        cityList.add(City.fromJson(d));
+      }
+
+      return cityList;
+    } else {
+      return null;
+    }
   }
 
   signUpUser() {}

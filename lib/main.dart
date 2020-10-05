@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:real_state_app/Constants/color_constants.dart';
+import 'package:real_state_app/MyHomePage.dart';
 import 'package:real_state_app/Screens/DrawerScreens/AddProperty.dart';
 import 'package:real_state_app/Screens/DrawerScreens/AllPropertiesPage.dart';
 import 'package:real_state_app/Screens/DrawerScreens/contact_us_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home:AddProperty(),
+        home:MyHomePage(),
         routes: {
           RegisterPage.routName: (ctx) => RegisterPage(),
           LoginPage.routName: (ctx) => LoginPage(),

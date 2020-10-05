@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/cupertino.dart';
+import 'package:real_state_app/Modals/City.dart';
 import 'package:real_state_app/Modals/Property.dart';
 import 'package:real_state_app/Modals/User.dart';
 import 'package:real_state_app/Service/ApiClient.dart';
@@ -11,15 +10,16 @@ class DataProvider with ChangeNotifier {
   ApiClient apiClient = new ApiClient();
 
   List<Property> propertyList;
+  List<City> cityList;
 
   DataProvider() {
     getUser();
     getPropertyList();
-
+    getCityList();
   }
 
   getUser() async {
-    await apiClient.loginUser("Mahadev","123");
+    await apiClient.loginUser("Mahadev", "123");
     var pref = await SharedPreferences.getInstance();
     var id = pref.getString("user");
     var pass = pref.getString("pass");
@@ -29,10 +29,15 @@ class DataProvider with ChangeNotifier {
     if (user != null) notifyListeners();
   }
 
-  getPropertyList()
-  async{
-   propertyList =  await apiClient.getAllProperty();
+  getPropertyList() async {
+    propertyList = await apiClient.getAllProperty();
 
-   notifyListeners();
+    notifyListeners();
+  }
+
+  getCityList() async {
+    cityList = await apiClient.getAllCities();
+
+    notifyListeners();
   }
 }
